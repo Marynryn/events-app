@@ -1,0 +1,34 @@
+{
+  "files": {
+    "main.css": "/babysitters/static/css/main.9fba96f5.css",
+    "main.js": "/babysitters/static/js/main.68e7b5d0.js",
+    "static/css/382.f2abe879.chunk.css": "/babysitters/static/css/382.f2abe879.chunk.css",
+    "static/js/382.4897352b.chunk.js": "/babysitters/static/js/382.4897352b.chunk.js",
+    "static/js/428.21e3a4d3.chunk.js": "/babysitters/static/js/428.21e3a4d3.chunk.js",
+    "static/js/308.82c0a601.chunk.js": "/babysitters/static/js/308.82c0a601.chunk.js",
+    "static/js/291.f8677423.chunk.js": "/babysitters/static/js/291.f8677423.chunk.js",
+    "static/js/404.15afb04b.chunk.js": "/babysitters/static/js/404.15afb04b.chunk.js",
+    "static/js/851.cbb9ec12.chunk.js": "/babysitters/static/js/851.cbb9ec12.chunk.js",
+    "static/js/314.aef77469.chunk.js": "/babysitters/static/js/314.aef77469.chunk.js",
+    "static/media/bg1.png": "/babysitters/static/media/bg1.4abe88267c63f5ba330a.png",
+    "static/media/HelveticaNeueBold.otf": "/babysitters/static/media/HelveticaNeueBold.1baa6c20d3e22be14c0a.otf",
+    "static/media/HelveticaNeueRegular.otf": "/babysitters/static/media/HelveticaNeueRegular.a7c3c98319c1341d5aa5.otf",
+    "static/media/HelveticaNeueMedium.otf": "/babysitters/static/media/HelveticaNeueMedium.38884ffafe8888205009.otf",
+    "static/media/symbol-defs.svg": "/babysitters/static/media/symbol-defs.655dd4efcaaa696c59eed757047d665f.svg",
+    "index.html": "/babysitters/index.html",
+    "main.9fba96f5.css.map": "/babysitters/static/css/main.9fba96f5.css.map",
+    "main.68e7b5d0.js.map": "/babysitters/static/js/main.68e7b5d0.js.map",
+    "382.f2abe879.chunk.css.map": "/babysitters/static/css/382.f2abe879.chunk.css.map",
+    "382.4897352b.chunk.js.map": "/babysitters/static/js/382.4897352b.chunk.js.map",
+    "428.21e3a4d3.chunk.js.map": "/babysitters/static/js/428.21e3a4d3.chunk.js.map",
+    "308.82c0a601.chunk.js.map": "/babysitters/static/js/308.82c0a601.chunk.js.map",
+    "291.f8677423.chunk.js.map": "/babysitters/static/js/291.f8677423.chunk.js.map",
+    "404.15afb04b.chunk.js.map": "/babysitters/static/js/404.15afb04b.chunk.js.map",
+    "851.cbb9ec12.chunk.js.map": "/babysitters/static/js/851.cbb9ec12.chunk.js.map",
+    "314.aef77469.chunk.js.map": "/babysitters/static/js/314.aef77469.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9fba96f5.css",
+    "static/js/main.68e7b5d0.js"
+  ]
+}

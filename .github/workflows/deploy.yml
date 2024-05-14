@@ -1,0 +1,40 @@
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2.3.1
+        
+      - name: Set up environment variables
+        run: |
+          echo "REACT_APP_API_KEY=${{ secrets.REACT_APP_API_KEY }}" >> $GITHUB_ENV
+          echo "REACT_APP_AUTH_DOMAIN=${{ secrets.REACT_APP_AUTH_DOMAIN }}" >> $GITHUB_ENV
+          echo "REACT_APP_PROJECT_ID=${{ secrets.REACT_APP_PROJECT_ID }}" >> $GITHUB_ENV
+          echo "REACT_APP_STORAGE_BUCKET=${{ secrets.REACT_APP_STORAGE_BUCKET }}" >> $GITHUB_ENV
+          echo "REACT_APP_SENDER_ID=${{ secrets.REACT_APP_SENDER_ID }}" >> $GITHUB_ENV
+          echo "REACT_APP_APP_ID=${{ secrets.REACT_APP_APP_ID }}" >> $GITHUB_ENV
+          
+      - name: Install, lint, build 🔧
+        run: |
+          npm install
+          npm run lint:js
+          npm run build
+        env:
+          REACT_APP_API_KEY: ${{ secrets.REACT_APP_API_KEY }}
+          REACT_APP_AUTH_DOMAIN: ${{ secrets.REACT_APP_AUTH_DOMAIN }}
+          REACT_APP_PROJECT_ID: ${{ secrets.REACT_APP_PROJECT_ID }}
+          REACT_APP_STORAGE_BUCKET: ${{ secrets.REACT_APP_STORAGE_BUCKET }}
+          REACT_APP_SENDER_ID: ${{ secrets.REACT_APP_SENDER_ID }}
+          REACT_APP_APP_ID: ${{ secrets.REACT_APP_APP_ID }}  
+    
+    
+    
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.0
+        with:
+          branch: gh-pages
+          folder: build

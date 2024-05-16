@@ -56,7 +56,7 @@ const RegistrationForm = () => {
                     <InputField type="date" name="date_of_birth" label="Date of birth" />
                     {errors.dateOfBirth && <ErrorBubble message={errors.dateOfBirth.message} />}
                 </div>
-                <div className='relative'>
+                <div className='relative '>
                     <p className='mb-4 mt-8'>Where did you hear about this event?</p>
                     <input type="radio" id="option1" name="about_us" value="Social media" {...register("about_us")} />
                     <label className=' ml-2 mr-8' htmlFor="option1">Social media</label>

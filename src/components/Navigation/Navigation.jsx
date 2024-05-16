@@ -13,7 +13,7 @@ export const Navigation = ({ props }) => {
                         Register
                     </NavLink></li>
                 <li id="2" className="font-normal text-blue-600 text-base underline hover:scale-110" >
-                    <NavLink to="/participants">
+                    <NavLink to={`/${props._id}/participants`} >
                         View
                     </NavLink></li>
 

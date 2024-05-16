@@ -10,10 +10,8 @@ export const Filters = () => {
     const options = [
         { value: 'AtoZ', label: 'A to Z' },
         { value: 'ZtoA', label: 'Z to A' },
-        { value: 'lessThen10', label: 'Less than 10$' },
-        { value: 'greaterThan10', label: 'Greater than 10$' },
-        { value: 'popular', label: 'Popular' },
-        { value: 'notPopular', label: 'Not popular' },
+        { value: 'eventDate', label: 'Event Date' },
+        { value: 'organizer', label: 'Organizer' },
         { value: 'showAll', label: 'Show all' },
     ];
     const defaultOption = options[0];
@@ -31,14 +29,14 @@ export const Filters = () => {
     };
 
     return (
-        <div>
-            <p className='font-medium text-sm text-gray pb-2 '>Filters</p>
+        <div className='ml-10'>
+            <p className='font-lg text-sm text-gray pb-2 '>Filters</p>
 
             <Select className="w-56 h-12 mb-8" options={options} defaultValue={defaultOption} onChange={handleFilterChange} styles={{
                 control: (provided, state) => ({
                     ...provided,
                     cursor: 'default',
-                    backgroundColor: '#103931',
+                    backgroundColor: '#0b6855',
                     color: 'white',
                     height: "48px",
                     borderRadius: '14px',

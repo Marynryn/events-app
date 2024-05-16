@@ -1,5 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { eventRegistration, fetchEvents } from "./operations";
+import {
+  eventRegistration,
+  fetchEvents,
+  fetchParticipants,
+} from "./operations";
 
 const mySlice = createSlice({
   name: "events",
@@ -7,8 +11,9 @@ const mySlice = createSlice({
     items: [],
     isLoading: false,
     error: null,
-
+    participants: [],
     filter: "",
+    participantsFilter: "",
   },
 
   reducers: {
@@ -17,6 +22,9 @@ const mySlice = createSlice({
     },
     deselectFilter: (state) => {
       state.filter = "";
+    },
+    addFilter: (state, action) => {
+      state.participantsFilter = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -45,6 +53,19 @@ const mySlice = createSlice({
         state.error = null;
       })
       .addCase(eventRegistration.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
+      .addCase(fetchParticipants.pending, (state, action) => {
+        state.isLoading = true;
+      })
+      .addCase(fetchParticipants.fulfilled, (state, action) => {
+        console.log(action.payload);
+        state.isLoading = false;
+        state.error = null;
+        state.participants = action.payload;
+      })
+      .addCase(fetchParticipants.rejected, (state, action) => {
         console.log(action.payload);
         state.isLoading = false;
         state.error = action.payload;
@@ -53,4 +74,4 @@ const mySlice = createSlice({
 });
 
 export const eventsReducer = mySlice.reducer;
-export const { setFilter, deselectFilter } = mySlice.actions;
+export const { setFilter, deselectFilter, addFilter } = mySlice.actions;

@@ -2,72 +2,42 @@ import { createSelector } from "@reduxjs/toolkit";
 
 export const selectGetEvents = (state) => state.events.items;
 export const selectGetFilter = (state) => state.events.filter;
+export const selectGetParticipants = (state) => state.events.participants;
 export const selectIsLoading = (state) => state.events.isLoading;
 export const selectError = (state) => state.events.error;
-
-export const selectVisibleCards = createSelector(
+export const selectGetParticipantsFilter = (state) =>
+  state.events.participantsFilter;
+export const selectVisibleEvents = createSelector(
   selectGetEvents,
   selectGetFilter,
-  (cards, filter) => {
+  (events, filter) => {
+    console.log(events, filter);
     switch (filter) {
       case "AtoZ":
-        return cards.slice().sort((a, b) => a.name.localeCompare(b.name));
+        return events.slice().sort((a, b) => a.title.localeCompare(b.title));
       case "ZtoA":
-        return cards.slice().sort((a, b) => b.name.localeCompare(a.name));
-      case "lessThen10":
-        return cards.filter((card) => card.price_per_hour < 10);
-      case "greaterThan10":
-        return cards
-          .filter((card) => card.price_per_hour > 10)
+        return events.slice().sort((a, b) => b.title.localeCompare(a.title));
+      case "organizer":
+        return events
           .slice()
-          .sort((a, b) => a.price_per_hour - b.price_per_hour);
-      case "popular":
-        return cards
-          .filter((card) => card.rating >= 4.85)
+          .sort((a, b) => a.organizer.localeCompare(b.organizer));
+      case "eventDate":
+        return events
           .slice()
-          .sort((a, b) => b.rating - a.rating);
-      case "notPopular":
-        return cards
-          .filter((card) => card.rating < 4.85)
-          .slice()
-          .sort((a, b) => a.rating - b.rating);
+          .sort((a, b) => new Date(a.event_date) - new Date(b.event_date));
       case "showAll":
       default:
-        return cards;
+        return events;
     }
   }
 );
-
-export const selectFavorites = (state) => state.cards.favorites;
-export const selectVisibleFavorites = createSelector(
-  selectFavorites,
-  selectGetFilter,
-  (cards, filter) => {
-    switch (filter) {
-      case "AtoZ":
-        return cards.slice().sort((a, b) => a.name.localeCompare(b.name));
-      case "ZtoA":
-        return cards.slice().sort((a, b) => b.name.localeCompare(a.name));
-      case "lessThen10":
-        return cards.filter((card) => card.price_per_hour < 10);
-      case "greaterThan10":
-        return cards
-          .filter((card) => card.price_per_hour > 10)
-          .slice()
-          .sort((a, b) => a.price_per_hour - b.price_per_hour);
-      case "popular":
-        return cards
-          .filter((card) => card.rating >= 4.85)
-          .slice()
-          .sort((a, b) => b.rating - a.rating);
-      case "notPopular":
-        return cards
-          .filter((card) => card.rating < 4.85)
-          .slice()
-          .sort((a, b) => a.rating - b.rating);
-      case "showAll":
-      default:
-        return cards;
-    }
+export const selectVisibleParticipants = createSelector(
+  [selectGetParticipants, selectGetParticipantsFilter],
+  (participants, filter) => {
+    return participants.filter(
+      (participants) =>
+        participants.name.toLowerCase().includes(filter.toLowerCase()) ||
+        participants.email.toLowerCase().includes(filter.toLowerCase())
+    );
   }
 );

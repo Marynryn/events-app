@@ -26,3 +26,15 @@ export const eventRegistration = createAsyncThunk(
     }
   }
 );
+export const fetchParticipants = createAsyncThunk(
+  "event/participants",
+  async ({ id }, { rejectWithValue }) => {
+    try {
+      const participants = await api.get(`/${id}`);
+
+      return participants.data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);

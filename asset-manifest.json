@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/events-app/static/css/main.53b73342.css",
+    "main.js": "/events-app/static/js/main.f15758ce.js",
+    "static/js/402.3636656d.chunk.js": "/events-app/static/js/402.3636656d.chunk.js",
+    "static/js/770.ec06ed17.chunk.js": "/events-app/static/js/770.ec06ed17.chunk.js",
+    "static/js/553.492cebb9.chunk.js": "/events-app/static/js/553.492cebb9.chunk.js",
+    "static/js/291.fbfe0174.chunk.js": "/events-app/static/js/291.fbfe0174.chunk.js",
+    "static/media/HelveticaNeueBold.otf": "/events-app/static/media/HelveticaNeueBold.1baa6c20d3e22be14c0a.otf",
+    "static/media/HelveticaNeueRegular.otf": "/events-app/static/media/HelveticaNeueRegular.a7c3c98319c1341d5aa5.otf",
+    "static/media/HelveticaNeueMedium.otf": "/events-app/static/media/HelveticaNeueMedium.38884ffafe8888205009.otf",
+    "index.html": "/events-app/index.html",
+    "main.53b73342.css.map": "/events-app/static/css/main.53b73342.css.map",
+    "main.f15758ce.js.map": "/events-app/static/js/main.f15758ce.js.map",
+    "402.3636656d.chunk.js.map": "/events-app/static/js/402.3636656d.chunk.js.map",
+    "770.ec06ed17.chunk.js.map": "/events-app/static/js/770.ec06ed17.chunk.js.map",
+    "553.492cebb9.chunk.js.map": "/events-app/static/js/553.492cebb9.chunk.js.map",
+    "291.fbfe0174.chunk.js.map": "/events-app/static/js/291.fbfe0174.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.53b73342.css",
+    "static/js/main.f15758ce.js"
+  ]
+}

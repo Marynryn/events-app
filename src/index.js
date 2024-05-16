@@ -10,7 +10,7 @@ import Loader from "components/Loader/Loader";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Provider store={store}>
-    <BrowserRouter basename="/babysitters">
+    <BrowserRouter basename="/events-app">
       <PersistGate persistor={persistor} loading={<Loader />}>
         <App />
       </PersistGate>

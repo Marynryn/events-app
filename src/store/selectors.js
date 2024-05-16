@@ -1,12 +1,12 @@
 import { createSelector } from "@reduxjs/toolkit";
 
-export const selectGetCards = (state) => state.cards.items;
-export const selectGetFilter = (state) => state.cards.filter;
-export const selectIsLoading = (state) => state.cards.isLoading;
-export const selectError = (state) => state.cards.error;
+export const selectGetEvents = (state) => state.events.items;
+export const selectGetFilter = (state) => state.events.filter;
+export const selectIsLoading = (state) => state.events.isLoading;
+export const selectError = (state) => state.events.error;
 
 export const selectVisibleCards = createSelector(
-  selectGetCards,
+  selectGetEvents,
   selectGetFilter,
   (cards, filter) => {
     switch (filter) {

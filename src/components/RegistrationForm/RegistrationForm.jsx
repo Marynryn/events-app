@@ -1,76 +1,73 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useForm, FormProvider } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 import InputField from 'components/InputField/InputField';
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from 'firebase/auth';
-import { auth } from 'firebase.js';
+
 import { yupResolver } from '@hookform/resolvers/yup';
 import { authSchema } from 'schema/schema';
-import sprite from "svg/symbol-defs.svg";
+import Button from 'components/Button/Button';
 import ErrorBubble from 'components/ErrorBubble/ErrorBubble';
+import { useDispatch } from 'react-redux';
+import { eventRegistration } from 'store/operations';
+import { useParams } from 'react-router-dom/dist';
 
 
 
-const RegistrationForm = ({ type, onClose }) => {
-    const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+
+const RegistrationForm = () => {
+    const dispatch = useDispatch();
     const methods = useForm({
         resolver: yupResolver(authSchema)
     });
-    const { handleSubmit, formState: { errors }, register } = methods;
-    const togglePasswordVisibility = () => {
-        setIsPasswordVisible(!isPasswordVisible);
-    };
-    const onSubmit = methods.handleSubmit(async (data) => {
-        console.log(data);
-        const { email, password, name } = data;
+    const { handleSubmit, formState: { errors }, register, reset } = methods;
+    const { id } = useParams();
 
+    const onSubmit = async (data) => {
         try {
-            if (type === 'login') {
-                await signInWithEmailAndPassword(auth, email, password);
-            } else {
-                const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-                console.log(userCredential)
-                if (name) {
-                    await updateProfile(userCredential.user, {
-                        displayName: name
-                    });
-                }
-                onClose();
-            }
+            console.log(data)
+            await dispatch(eventRegistration({ id, data }));
+
+
+            reset();
+
+
+            toast.success("Registration successful");
         } catch (error) {
-            toast.error("Invalid email or password");
+
+            toast.error("Failed to register");
         }
-    });
+    };
 
     return (
         <FormProvider {...methods}>
-            <form onSubmit={handleSubmit(onSubmit)} className="block gap-10">
-                <p className="mb-5 text-4xl font-medium">{`${type === 'register' ? 'Registration' : 'Log In'}`}</p>
-                <p className="mb-10 text-s font-base" style={{ color: "rgba(17, 16, 28, 0.50)" }}>{`${type === 'register' ? 'Thank you for your interest in our platform! In order to register, we need some information. Please provide us with the following information.' : 'Welcome back! Please enter your credentials to access your account and continue your babysitter search.'}`}   </p>
-                <div className="w-full relative">
-                    {type === 'register' && (
+            <form onSubmit={handleSubmit(onSubmit)} className="block gap-10 h-full">
+                <h2 className="mb-10 text-6xl font-medium">Event registration</h2>
 
-                        <InputField name="name" placeholder="Name" />
+                <div className=" relative">
 
 
-                    )}
-                    <InputField name="email" placeholder="Email" />
-                    <div className='relative'>
-                        <input type={isPasswordVisible ? 'text' : 'password'} name="password" placeholder="Password" className='border border-border-gray w-full h-12 mb-4 pl-4 focus:border-teal-900 rounded-xl placeholder-black text-base font-normal text-black' {...register("password")} />
-                        {errors.password && <ErrorBubble message={errors.password.message} />}
-                        <button type='button' className='absolute right-4 ' style={{ top: "14px" }} onClick={togglePasswordVisibility}>
-                            {isPasswordVisible ? (<svg className="w-5 h-5  top-3/4 right-1/4 mb-4 fill-white stroke-black" >
-                                <use href={`${sprite}#icon-eye`} width={20} height={20} />
-                            </svg>) :
-                                (<svg className="w-5 h-5  top-3/4 right-1/4 mb-4 fill-white stroke-black" >
-                                    <use href={`${sprite}#icon-eye-off`} width={20} height={20} />
-                                </svg>)}
-                        </button>
-                    </div>
+                    <InputField type="text" name="name" label="Full Name" />
+
+
+
+                    <InputField type="email" name="email" label="Email" />
+
+
+                    <InputField type="date" name="date_of_birth" label="Date of birth" />
+                    {errors.dateOfBirth && <ErrorBubble message={errors.dateOfBirth.message} />}
                 </div>
-                <div>
-                    <button className=' bg-teal-900  border  border-stone-200 rounded-full w-full py-3 text-center mt-8 text-white  hover:bg-light-teal' type="submit" ><span className=''>{`${type === 'login' ? 'Log In' : 'Sign Up'}`}</span></button>
+                <div className='relative'>
+                    <p className='mb-4 mt-8'>Where did you hear about this event?</p>
+                    <input type="radio" id="option1" name="about_us" value="Social media" {...register("about_us")} />
+                    <label className=' ml-2 mr-8' htmlFor="option1">Social media</label>
+                    <input type="radio" id="option2" name="about_us" value="Friends" {...register("about_us")} />
+                    <label className=' ml-2 mr-8' htmlFor="option2">Friends</label>
+                    <input type="radio" id="option3" name="about_us" value="Found myself" {...register("about_us")} />
+                    <label className=' ml-2 ' htmlFor="option3">Found myself</label>
+                    {errors.about_us && <ErrorBubble message={errors.about_us.message} />}
                 </div>
+                <div className='ml-32 mt-16'><Button type="submit" >Register</Button></div>
+
             </form>
 
         </FormProvider>

@@ -1,12 +1,12 @@
 const ErrorBubble = ({ message }) => {
 
-    if (/age must be a `number` type/i.test(message)) {
-        message = "Age must be a number";
+    if (/ must be a `date` type/i.test(message)) {
+        message = "Date of birth is required";
     }
 
 
     return (
-        <div className="absolute  -top-4 mt-1 right-0 bg-red-400 text-white  py-1 rounded  text-xs z-50 " style={{ padding: "4px 3px" }}>
+        <div className="absolute left-72 top-0  mt-1  bg-red-400 text-white  py-1 rounded  text-xs z-50 " style={{ padding: "4px 3px" }}>
             {message}
         </div>
     );

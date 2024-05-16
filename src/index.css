@@ -33,13 +33,12 @@ html {
   font-weight: 400;
   width: 100%;
   overflow-x: hidden;
+  background-color: rgb(167 243 208);
 }
 
-ul,
-link {
+ul {
   list-style: none;
 }
-
 
 ul {
   padding-inline-start: 0;

@@ -1,13 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { eventRegistration, fetchEvents } from "./operations";
 
 const mySlice = createSlice({
-  name: "cards",
+  name: "events",
   initialState: {
     items: [],
     isLoading: false,
     error: null,
-    favorites: [],
-    filter: "AtoZ",
+
+    filter: "",
   },
 
   reducers: {
@@ -17,27 +18,39 @@ const mySlice = createSlice({
     deselectFilter: (state) => {
       state.filter = "";
     },
-    addToFavorites: (state, { payload }) => {
-      state.favorites.push(payload);
-    },
-    removeFromFavorites: (state, { payload }) => {
-      state.favorites = state.favorites.filter(
-        (favorite) => favorite.name !== payload
-      );
-    },
-    setCards: (state, action) => {
-      state.isLoading = false;
-      state.error = null;
-      state.items = action.payload;
-    },
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchEvents.pending, (state, action) => {
+        state.isLoading = true;
+      })
+      .addCase(fetchEvents.fulfilled, (state, action) => {
+        console.log(action.payload);
+        state.isLoading = false;
+        state.error = null;
+
+        state.items = action.payload;
+      })
+      .addCase(fetchEvents.rejected, (state, action) => {
+        console.log(action.payload);
+        state.isLoading = false;
+        state.error = action.payload;
+      })
+      .addCase(eventRegistration.pending, (state, action) => {
+        state.isLoading = true;
+      })
+      .addCase(eventRegistration.fulfilled, (state, action) => {
+        console.log(action.payload);
+        state.isLoading = false;
+        state.error = null;
+      })
+      .addCase(eventRegistration.rejected, (state, action) => {
+        console.log(action.payload);
+        state.isLoading = false;
+        state.error = action.payload;
+      });
   },
 });
 
-export const cardsReducer = mySlice.reducer;
-export const {
-  setFilter,
-  deselectFilter,
-  addToFavorites,
-  removeFromFavorites,
-  setCards,
-} = mySlice.actions;
+export const eventsReducer = mySlice.reducer;
+export const { setFilter, deselectFilter } = mySlice.actions;

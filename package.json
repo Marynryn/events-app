@@ -1,8 +1,8 @@
 {
-  "name": "react-homework-template",
+  "name": "events-application",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Marynryn.github.io/babysitters/",
+  "homepage": "https://Marynryn.github.io/events-app/",
   "dependencies": {
     "@hookform/resolvers": "^3.3.4",
     "@mui/material": "^5.15.14",

@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import CardItem from "components/CardItem/CardItem";
 
-const CardsList = ({ props }) => {
+import EventItem from "components/EventItem/EventItem";
+
+const EventsList = ({ props }) => {
 
 
     const [displayedCards, setDisplayedCards] = useState([]);
@@ -27,10 +28,10 @@ const CardsList = ({ props }) => {
 
     return (
         <div className="">
-            <ul>
+            <ul className=" flex flex-wrap gap-10 justify-center" >
                 {displayedCards.map((card) => (
-                    <li key={card.name} className=" bg-white rounded-3xl mb-8">
-                        <CardItem props={card} />
+                    <li key={card._id} className=" bg-white rounded-3xl  " style={{ width: "280px" }} >
+                        <EventItem props={card} />
                     </li>
                 ))}
             </ul>
@@ -46,4 +47,4 @@ const CardsList = ({ props }) => {
     );
 };
 
-export default CardsList;
+export default EventsList;

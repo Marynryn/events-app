@@ -9,7 +9,7 @@ export const Layout = () => {
 
 
     return (
-        <div className=''  >
+        <div className=' bg-emerald-200'  >
 
             <Suspense fallback={<Loader />}>
                 <Outlet />

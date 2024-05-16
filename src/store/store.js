@@ -2,10 +2,10 @@ import { configureStore } from "@reduxjs/toolkit";
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { combineReducers } from "redux";
-import { cardsReducer } from "./reducer";
+import { eventsReducer } from "./reducer";
 
 const rootReducer = combineReducers({
-  cards: cardsReducer,
+  events: eventsReducer,
 });
 
 const persistConfig = {

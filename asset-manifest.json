@@ -1,10 +1,10 @@
 {
   "files": {
     "main.css": "/events-app/static/css/main.3d0e6475.css",
-    "main.js": "/events-app/static/js/main.edd156c7.js",
+    "main.js": "/events-app/static/js/main.ca9ab310.js",
     "static/js/402.55fcd6e1.chunk.js": "/events-app/static/js/402.55fcd6e1.chunk.js",
-    "static/js/930.c00a5b2a.chunk.js": "/events-app/static/js/930.c00a5b2a.chunk.js",
-    "static/js/845.47c19cbd.chunk.js": "/events-app/static/js/845.47c19cbd.chunk.js",
+    "static/js/930.7dfb4a89.chunk.js": "/events-app/static/js/930.7dfb4a89.chunk.js",
+    "static/js/845.43ec2891.chunk.js": "/events-app/static/js/845.43ec2891.chunk.js",
     "static/js/404.e5b4c1b0.chunk.js": "/events-app/static/js/404.e5b4c1b0.chunk.js",
     "static/js/291.fbfe0174.chunk.js": "/events-app/static/js/291.fbfe0174.chunk.js",
     "static/media/HelveticaNeueBold.otf": "/events-app/static/media/HelveticaNeueBold.1baa6c20d3e22be14c0a.otf",
@@ -12,15 +12,15 @@
     "static/media/HelveticaNeueMedium.otf": "/events-app/static/media/HelveticaNeueMedium.38884ffafe8888205009.otf",
     "index.html": "/events-app/index.html",
     "main.3d0e6475.css.map": "/events-app/static/css/main.3d0e6475.css.map",
-    "main.edd156c7.js.map": "/events-app/static/js/main.edd156c7.js.map",
+    "main.ca9ab310.js.map": "/events-app/static/js/main.ca9ab310.js.map",
     "402.55fcd6e1.chunk.js.map": "/events-app/static/js/402.55fcd6e1.chunk.js.map",
-    "930.c00a5b2a.chunk.js.map": "/events-app/static/js/930.c00a5b2a.chunk.js.map",
-    "845.47c19cbd.chunk.js.map": "/events-app/static/js/845.47c19cbd.chunk.js.map",
+    "930.7dfb4a89.chunk.js.map": "/events-app/static/js/930.7dfb4a89.chunk.js.map",
+    "845.43ec2891.chunk.js.map": "/events-app/static/js/845.43ec2891.chunk.js.map",
     "404.e5b4c1b0.chunk.js.map": "/events-app/static/js/404.e5b4c1b0.chunk.js.map",
     "291.fbfe0174.chunk.js.map": "/events-app/static/js/291.fbfe0174.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.3d0e6475.css",
-    "static/js/main.edd156c7.js"
+    "static/js/main.ca9ab310.js"
   ]
 }

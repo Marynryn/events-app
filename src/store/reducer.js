@@ -12,7 +12,7 @@ const mySlice = createSlice({
     isLoading: false,
     error: null,
     participants: [],
-    filter: "",
+    filter: "showAll",
     participantsFilter: "",
   },
 

@@ -8,11 +8,12 @@ export const Filters = () => {
 
 
     const options = [
+        { value: 'showAll', label: 'Show all' },
         { value: 'AtoZ', label: 'A to Z' },
         { value: 'ZtoA', label: 'Z to A' },
         { value: 'eventDate', label: 'Event Date' },
         { value: 'organizer', label: 'Organizer' },
-        { value: 'showAll', label: 'Show all' },
+
     ];
     const defaultOption = options[0];
     const dispatch = useDispatch();

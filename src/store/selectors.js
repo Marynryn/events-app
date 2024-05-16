@@ -34,6 +34,9 @@ export const selectVisibleEvents = createSelector(
 export const selectVisibleParticipants = createSelector(
   [selectGetParticipants, selectGetParticipantsFilter],
   (participants, filter) => {
+    if (!participants.length) {
+      return [];
+    }
     return participants.filter(
       (participants) =>
         participants.name.toLowerCase().includes(filter.toLowerCase()) ||

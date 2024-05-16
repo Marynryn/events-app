@@ -20,7 +20,7 @@ const Board = () => {
 
     return (<div className="p-10">
         {loading ? <Loader /> : (<><h1 className="text-7xl mb-10 ml-10">Events</h1><Filters /> <EventsList props={events} /></>)}
-        {/* <h1 className="text-7xl mb-10 ml-10">Events</h1> <EventsList props={events} /> */}
+
     </div>)
 }
 

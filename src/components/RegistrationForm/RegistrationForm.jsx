@@ -2,7 +2,6 @@ import React from 'react';
 import { useForm, FormProvider } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 import InputField from 'components/InputField/InputField';
-
 import { yupResolver } from '@hookform/resolvers/yup';
 import { authSchema } from 'schema/schema';
 import Button from 'components/Button/Button';
@@ -10,8 +9,6 @@ import ErrorBubble from 'components/ErrorBubble/ErrorBubble';
 import { useDispatch } from 'react-redux';
 import { eventRegistration } from 'store/operations';
 import { useParams } from 'react-router-dom/dist';
-
-
 
 
 const RegistrationForm = () => {
@@ -26,11 +23,7 @@ const RegistrationForm = () => {
         try {
             console.log(data)
             await dispatch(eventRegistration({ id, data }));
-
-
             reset();
-
-
             toast.success("Registration successful");
         } catch (error) {
 
@@ -44,15 +37,8 @@ const RegistrationForm = () => {
                 <h2 className="mb-10 text-6xl font-medium">Event registration</h2>
 
                 <div className=" relative">
-
-
                     <InputField type="text" name="name" label="Full Name" />
-
-
-
                     <InputField type="email" name="email" label="Email" />
-
-
                     <InputField type="date" name="date_of_birth" label="Date of birth" />
                     {errors.dateOfBirth && <ErrorBubble message={errors.dateOfBirth.message} />}
                 </div>

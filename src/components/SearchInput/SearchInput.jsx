@@ -1,7 +1,5 @@
 import { useDispatch } from "react-redux";
-
 import { addFilter } from "store/reducer";
-
 
 
 const SearchInput = () => {

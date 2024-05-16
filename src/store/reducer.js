@@ -33,14 +33,14 @@ const mySlice = createSlice({
         state.isLoading = true;
       })
       .addCase(fetchEvents.fulfilled, (state, action) => {
-        console.log(action.payload);
+      
         state.isLoading = false;
         state.error = null;
 
         state.items = action.payload;
       })
       .addCase(fetchEvents.rejected, (state, action) => {
-        console.log(action.payload);
+   
         state.isLoading = false;
         state.error = action.payload;
       })
@@ -48,7 +48,7 @@ const mySlice = createSlice({
         state.isLoading = true;
       })
       .addCase(eventRegistration.fulfilled, (state, action) => {
-        console.log(action.payload);
+      
         state.isLoading = false;
         state.error = null;
       })
@@ -60,13 +60,13 @@ const mySlice = createSlice({
         state.isLoading = true;
       })
       .addCase(fetchParticipants.fulfilled, (state, action) => {
-        console.log(action.payload);
+       
         state.isLoading = false;
         state.error = null;
         state.participants = action.payload;
       })
       .addCase(fetchParticipants.rejected, (state, action) => {
-        console.log(action.payload);
+       
         state.isLoading = false;
         state.error = action.payload;
       });

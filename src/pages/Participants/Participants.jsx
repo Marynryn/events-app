@@ -18,7 +18,7 @@ const Participants = () => {
     }, [dispatch, id]);
 
     const participants = useSelector(selectVisibleParticipants);
-    console.log(event);
+
     return (<div className="p-10">
         <p className="text-5xl mb-10">"{event[0].title}" participants</p>
         <SearchInput />

@@ -11,7 +11,6 @@ export const selectVisibleEvents = createSelector(
   selectGetEvents,
   selectGetFilter,
   (events, filter) => {
-    console.log(events, filter);
     switch (filter) {
       case "AtoZ":
         return events.slice().sort((a, b) => a.title.localeCompare(b.title));

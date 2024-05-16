@@ -21,7 +21,7 @@ const RegistrationForm = () => {
 
     const onSubmit = async (data) => {
         try {
-            console.log(data)
+
             await dispatch(eventRegistration({ id, data }));
             reset();
             toast.success("Registration successful");
